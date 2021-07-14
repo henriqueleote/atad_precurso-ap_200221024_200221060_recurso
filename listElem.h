@@ -13,8 +13,10 @@
 
 #pragma once
 
+#include "netflix.h"
+
 /** Type definition. Change according to the use-case. */
-typedef int ListElem;
+typedef Netflix ListElem;
 
 /**
  * @brief Prints an element.
@@ -25,4 +27,3 @@ typedef int ListElem;
  * @param elem [in] element to print
  */
 void listElemPrint(ListElem elem);
-

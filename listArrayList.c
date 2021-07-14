@@ -142,6 +142,7 @@ int listClear(PtList list) {
 
 	return LIST_OK;
 }
+
 void listPrint(PtList list) {
 	if (list == NULL) {
 		printf("(List NULL)\n");

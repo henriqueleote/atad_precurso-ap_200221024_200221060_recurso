@@ -2,34 +2,23 @@
 #include <stdlib.h>
 #include <string.h>
 #include "input.h"
+#include "functions.h"
 
 int main() {
 
-    /* TODO: Complete code, just a basic command line */
-    /* TODO: Commands are not currently case insensitive */
+    PtList list = listCreate();
 
-    char input[100];
+    list = LOADD(list); //maximo que não dá erro
 
-    while (true)
-    {
-        printf("$>");
-        readString(input, 100);
+    LIST(list);
 
-        if (strcmp(input, "QUIT") == 0)
-        {
-            printf("Exit.\n");
-            break;
-        }
-        else if (strcmp(input, "LOADF") == 0)
-        {
-            
-        }
-        //...
-        else
-        {
-            printf("\nUnknown command.\n");
-        }
-    }
+    //netflixPrint(&list);
+
+    /*for (int i = 0; i < n; i++){
+        printf("Netflix[%d]: %s \n", i, netflix[i].show_id);
+    }*/
+
+
 
     return EXIT_SUCCESS;
 }
