@@ -4,13 +4,17 @@
 #include "netflix.h"
 #include "input.h"
 #include "list.h"
-#include "math.h"
 #include <ctype.h>
 
 #define NETFLIX_FILE "csv_data/netflix_titles.csv"
+#define TYPE 0
+#define TYPE_MOVIE 1
+#define TYPE_SHOW 2
+#define ORDER_ALPH_ASC 3
+#define ORDER_DURATION_ASC 5
+#define ORDER_DURATION_DESC 6
 
-PtList LOADF(PtList list)
-{
+PtList LOADF(PtList list){
 
     listClear(list); //limpa a lista
     char path[] = "csv_data/";
@@ -42,7 +46,10 @@ PtList LOADF(PtList list)
 
                 char **tokens = splitString(tmp, 12, ";");
 
-                Netflix netflix = netflixCreate(tokens[0], tokens[1], tokens[2], tokens[3], tokens[4], tokens[5], tokens[6], tokens[7], tokens[8], tokens[9], tokens[10], tokens[11]);
+                char **tokens2 = splitString(tokens[9], 2, " ");
+                int duration = atoi(tokens2[0]);
+
+                Netflix netflix = netflixCreate(tokens[0], tokens[1], tokens[2], tokens[3], tokens[4], tokens[5], tokens[6], tokens[7], tokens[8], duration, tokens[10], tokens[11]);
 
                 listAdd(list, count, netflix); // É count - 1 para descontar a primeira linha
 
@@ -73,7 +80,7 @@ PtList LOADD(PtList list)
     FILE *stream = fopen(NETFLIX_FILE, "r");
 
     if (stream == NULL)
-        printf("File not found\n");
+        printf("Ficheiro não encontrado\n");
 
     else
     {
@@ -88,7 +95,10 @@ PtList LOADD(PtList list)
 
                 char **tokens = splitString(tmp, 12, ";");
 
-                Netflix netflix = netflixCreate(tokens[0], tokens[1], tokens[2], tokens[3], tokens[4], tokens[5], tokens[6], tokens[7], tokens[8], tokens[9], tokens[10], tokens[11]);
+                char **tokens2 = splitString(tokens[9], 2, " ");
+                int duration = atoi(tokens2[0]);
+
+                Netflix netflix = netflixCreate(tokens[0], tokens[1], tokens[2], tokens[3], tokens[4], tokens[5], tokens[6], tokens[7], tokens[8], duration, tokens[10], tokens[11]);
 
                 listAdd(list, count, netflix); // É count - 1 para descontar a primeira linha
 
@@ -186,55 +196,262 @@ void GET(PtList list)
         listElemPrint(elem);
 }
 
-void LIST(PtList list)
+PtList sort(PtList list, int type, int order)
+{
+    int size;
+    listSize(list, &size);
+    if (list == NULL)
+    {
+        printf("(List NULL)\n");
+    }
+    else if (size == 0)
+    {
+        printf("(List EMPTY)\n");
+    }
+    else
+    {
+        if (type == TYPE)
+        {
+            if (order == ORDER_ALPH_ASC)
+            {
+                printf("Please wait while sorting...\n");
+                for (int i = 0; i < size; i++)
+                {
+                    for (int j = 0; j < size - 1 - i; j++)
+                    {
+                        ListElem elem1, elem2, elem3;
+                        listGet(list, j, &elem1);
+                        listGet(list, j + 1, &elem2);
+                        if (strcmp(elem1.title, elem2.title) > 0)
+                        {
+                            listSet(list, j + 1, elem1, &elem3);
+                            listSet(list, j, elem2, &elem3);
+                        }
+                    }
+                }
+            }
+            if (order == ORDER_DURATION_ASC)
+            {
+            }
+            if (order == ORDER_DURATION_DESC)
+            {
+            }
+        }
+        if (type == TYPE_MOVIE)
+        {
+            if (order == ORDER_ALPH_ASC)
+            {
+            }
+            if (order == ORDER_DURATION_ASC)
+            {
+            }
+            if (order == ORDER_DURATION_DESC)
+            {
+                printf("Please wait while sorting...\n");
+                for (int i = 0; i < size; i++)
+                {
+                    for (int j = 0; j < size - 1 - i; j++)
+                    {
+                        ListElem elem1, elem2, elem3;
+                        listGet(list, j, &elem1);
+                        listGet(list, j + 1, &elem2);
+                        if (elem1.duration < elem2.duration)
+                        {
+                            listSet(list, j + 1, elem1, &elem3);
+                            listSet(list, j, elem2, &elem3);
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                }
+            }
+        }
+        if (type == TYPE_SHOW)
+        {
+            if (order == ORDER_ALPH_ASC)
+            {
+            }
+            if (order == ORDER_DURATION_ASC)
+            {
+            }
+            if (order == ORDER_DURATION_DESC)
+            {
+            }
+        }
+    }
+    return list;
+}
+
+void LIST(PtList list, int min, int max, int type)
 {
     printf("Show Id | Type | Title | Date Added | Rating | Duration\n");
-    listPrint(list);
+    int size;
+    listSize(list, &size);
+    ListElem elem;
+    char c;
+    if (list == NULL)
+        printf("(List NULL)\n");
+    else if (size == 0)
+        printf("(List EMPTY)\n");
+    else
+    {
+        int count = 0;
+        for (int rank = 0; rank < size; rank++)
+        {
+            listGet(list, rank, &elem);
+            if (min != -1 && max != -1)
+            {
+                if (type == TYPE)
+                {
+                    if (elem.duration >= min && elem.duration <= max)
+                    {
+                        listElemPrint(elem);
+                        count++;
+                        if (count % 30 == 0)
+                        {
+                            printf("Do you want to show +30 titles? (y/n)? ");
+                            readChar(&c);
+                            if (c == 'Y' || c == 'y')
+                                continue;
+                            else
+                                break;
+                        }
+                        if (count == size)
+                            printf("There are no more netflix titles.\n");
+                    }
+                }
+                if (type == TYPE_MOVIE || type == TYPE_SHOW)
+                {
+                    char id[8];
+                    if (type == TYPE_MOVIE)
+                    {
+                        strcpy(id, "Movie");
+                    }
+
+                    if (type == TYPE_SHOW)
+                    {
+                        strcpy(id, "TV Show");
+                    }
+
+                    if (strcmp(elem.type, id) == 0)
+                    {
+                        if (elem.duration >= min && elem.duration <= max)
+                        {
+                            listElemPrint(elem);
+                            count++;
+                            if (count % 30 == 0)
+                            {
+                                printf("Do you want to show +30 titles? (y/n)? ");
+                                readChar(&c);
+                                if (c == 'Y' || c == 'y')
+                                    continue;
+                                else
+                                    break;
+                            }
+                            if (count == size)
+                                printf("There are no more netflix titles.\n");
+                        }
+                    }
+                    else
+                        continue;
+                }
+            }
+        }
+    }
+    printf("\n");
+}
+
+void MTIME(PtList list)
+{
+    char min[4];
+    char max[4];
+
+    printf("Min: ");
+    readString(min, 4);
+
+    printf("Max: ");
+    readString(max, 4);
+}
+
+void SEARCHT(PtList list)
+{
+    char titleLower[640];
+    char title[640];
+    int sizeList;
+    Netflix netflix;
+    printf("Please insert the netflix title: ");
+    readString(title, 640);
+    listSize(list, &sizeList);
+    int i = 0;
+
+    int size = strlen(title);
+
+    while (i != size)
+    {
+        title[i] = tolower(title[i]);
+        i++;
+    }
+    for (int i = 0; i < sizeList; i++)
+    {
+        listGet(list, i, &netflix);
+        int i = 0;
+
+        int size = strlen(netflix.cast);
+        while (i != size)
+        {
+            titleLower[i] = tolower(netflix.cast[i]);
+            i++;
+        }
+        if (strstr(titleLower, title) != NULL)
+        {
+            printf("\nTitles with that name:\n%s\n", netflix.title);
+            break;
+        }
+    }
+    // Falta ordenar pela data
 }
 
 void netflixPrint(Netflix *pNetflix)
 {
-    printf("%s  |  %s  |  %s  |  %s  |  %s  |  %s\n", pNetflix->show_id, pNetflix->type, pNetflix->title, pNetflix->date_added, pNetflix->rating, pNetflix->duration);
+    printf("%s  |  %s  |  %s  |  %s  |  %s  |  %d\n", pNetflix->show_id, pNetflix->type, pNetflix->title, pNetflix->date_added, pNetflix->rating, pNetflix->duration);
 }
 
 void STATS(PtList list)
 {
-    int size = 0, movieCount = 0, tvCount = 0, min = 300, max = 0, minS = 100, maxS = 0, totalMinutes = 0, totalSeasons = 0, duration = 0;
+    int size = 0, movieCount = 0, tvCount = 0, min = 300, max = 0, minS = 100, maxS = 0, totalMinutes = 0, totalSeasons = 0;
     listSize(list, &size);
     Netflix netflix;
     for (int i = 0; i < size; i++)
     {
         listGet(list, i, &netflix);
-        char **tokens = splitString(netflix.duration, 2, " ");
-        duration = atoi(tokens[0]);
         if (strcmp(netflix.type, "Movie") == 0)
         {
             movieCount++;
-            totalMinutes += duration;
-            if (duration < min)
+            totalMinutes += netflix.duration;
+            if (netflix.duration < min)
             {
-                min = duration;
+                min = netflix.duration;
             }
-            if (duration > max)
+            if (netflix.duration > max)
             {
-                max = duration;
+                max = netflix.duration;
             }
         }
         if (strcmp(netflix.type, "TV Show") == 0)
         {
             tvCount++;
-            totalSeasons += duration;
-            if (duration < minS)
+            totalSeasons += netflix.duration;
+            if (netflix.duration < minS)
             {
-                minS = duration;
+                minS = netflix.duration;
             }
-            if (duration > maxS)
+            if (netflix.duration > maxS)
             {
-                maxS = duration;
+                maxS = netflix.duration;
             }
         }
-
-        free(tokens);
     }
     double averageDuration = totalMinutes / movieCount;
     double averageSeasons = totalSeasons / tvCount;
