@@ -53,7 +53,7 @@ void LIST(PtList list, int min, int max, int type);
 
 void MTIME(PtList list);
 
-PtList sort(PtList list, int type, int sort);
+PtList sort(PtList list, int sort);
 
 /**
  * @brief Prints all netflix titles.
@@ -66,5 +66,7 @@ void printList(PtList list);
 void STATS(PtList list);
 
 void SEARCHC(PtList list);
+
+void SEARCHT(PtList list);
 
 void RATINGS(PtList list);
