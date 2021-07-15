@@ -2,57 +2,56 @@
 #include "list.h"
 
 /**
- * @brief Populates the list with netflix titles from a specific given file
+ * @brief Populates array with students.
  * 
- * The function returns the list with the populated netflix titles
- *  
- * @param list [in] the list to be populated
- * @return PtList The list with all netflix titles.
+ * The function returns how many students were actually populated.
+ * This is important if 'howMany' is greater than available students.
+ * 
+ * Should use the return value to iterate the array afterwards.
+ * 
+ * @param arr [out] array of netflix titles to populate. Must have necessary space.
+ * @param howMany [in] number of netflix titles to load
+ * @return int actually number of populated netflix titles.
  */
 PtList LOADF(PtList list);
 
 /**
- * @brief Populates the list with netflix titles from a default file
+ * @brief Populates array with students.
  * 
- * The function returns the list with the populated netflix titles
+ * The function returns how many students were actually populated.
+ * This is important if 'howMany' is greater than available students.
  * 
- * @param list [in] the list to be populated
- * @return PtList The list with all netflix titles.
+ * Should use the return value to iterate the array afterwards.
+ * 
+ * @param arr [out] array of netflix titles to populate. Must have necessary space.
+ * @param howMany [in] number of netflix titles to load
+ * @return int actually number of populated netflix titles.
  */
 PtList LOADD(PtList list);
 
-/**
- * @brief Clear all the used lists in order to clear used memory
- * @param list [in] the list to be cleared
- */
 void CLEAR(PtList list);
 
-/**
- * @brief Clear all the used lists and exits the program
- * @param list [in] the list to be cleared
- */
 void QUIT(PtList list);
 
-/**
- * @brief Deletes a specific given title from the netflix list
- * @param list [in] the list from where the title is going to be removed
- */
 void DEL(PtList list);
 
-/**
- * @brief Returns a specific given title from the netflix list
- * @param list [in] the list from where the title is going to be returned from
- */
 void GET(PtList list);
 
-/**
- * @brief Print to screen all the netflix titles in the list
- * @param list [in] the list from where the titles are going to be printed from
- */
 void LIST(PtList list);
 
 /**
  * @brief Prints all netflix titles.
+ * 
+ * The function prints all data from every netflix show
+ * 
  * @param pNetflix [in] pointer from Netflix struct
  */
 void netflixPrint(Netflix *pNetflix);
+
+void printList(PtList list);
+
+void STATS(PtList list);
+
+void SEARCHC(PtList list);
+
+void RATINGS(PtList list);

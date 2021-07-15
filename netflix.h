@@ -11,7 +11,7 @@ typedef struct netflix
     char date_added[30];   // - data de disponibilização na plataforma Netflix [string no formato “%M %d, %Y];
     char release_year[10]; // - ano de publicação [string que contém um número inteiro];
     char rating[10];       // - classificação etária [string];
-    char duration[20];     // - duração (em minutos ou temporadas) [string];
+    char duration[10];     // - duração (em minutos ou temporadas) [string];
     char listed_in[100];   // - categorização do título [string];
     char description[300]; // - descrição [string]
 } Netflix;
