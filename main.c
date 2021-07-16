@@ -10,26 +10,34 @@
 #define ORDER_ALPH_ASC 3
 #define ORDER_DURATION_DESC 6
 #define ORDER_RATING 5
+#define ORDER_YEAR_ASC 7
+#define ORDER_DATE_ASC 8
 
 int main()
 {
 
-    PtList list = listCreate();
 
-    list = LOADD(list); //CARREGA O FICHEIRO DEFAULT
-    //list = LOADF(list); //CARREGA UM FICHEIRO COM O NOME DADO
+    PtList mainList = listCreate();
 
-    //list = sort(list, ORDER_ALPH_ASC);    //ORDENA POR NOME CRESCENTE A->Z
-    //list = sort(list, ORDER_DURATION_DESC);   /ORDENA POR DURAÇÃO DECRESCENTE 312->0
+    mainList = LOADD(mainList); //CARREGA O FICHEIRO DEFAULT
+    //mainList = LOADF(list); //CARREGA UM FICHEIRO COM O NOME DADO
 
-    //LIST(list, -1, -1, TYPE); //APRESENTA TODOS OS TITULOS SEM LIMITES
-    //LIST(list, -1, -1, TYPE_SHOW); //APRESENTA TODOS AS SERIES SEM LIMITES
-    //LIST(list, -1, -1, TYPE_MOVIE); //APRESENTA TODOS OS FILMES SEM LIMITES
-    //LIST(list, 10, 20, TYPE); //APRESENTA TODOS OS TITULOS COM LIMITES
+    //mainList = sort(mainList, ORDER_ALPH_ASC);    //ORDENA POR NOME CRESCENTE A->Z
+    //sortAlpha(mainList); //ORDENA POR NOME CRESCENTE A->Z
+    //mainList = sort(mainList, ORDER_DURATION_DESC);   /ORDENA POR DURAÇÃO DECRESCENTE 312->0
 
-    //MTIME(list);  //APRESENTA OS FILMES COM A ORDENAÇÃO DE DURAÇÃO DECRESCENTE
+    //RATINGS(mainList, true);
+    CATEGORIES(mainList);
 
-    RATINGS(list);
+    //LIST(mainList, -1, -1, TYPE); //APRESENTA TODOS OS TITULOS SEM LIMITES
+    //LIST(mainList, -1, -1, TYPE_SHOW); //APRESENTA TODOS AS SERIES SEM LIMITES
+    //LIST(mainList, -1, -1, TYPE_MOVIE); //APRESENTA TODOS OS FILMES SEM LIMITES
+    //LIST(mainList, 10, 20, TYPE); //APRESENTA TODOS OS TITULOS COM LIMITES
+
+    //SEARCHT(mainList);  //APRESENTA OS FILMES COM A ORDENAÇÃO DE DURAÇÃO DECRESCENTE
+    //MTIME(mainList);
+
+    //SEGMENT(mainList);
 
     return EXIT_SUCCESS;
 }

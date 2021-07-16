@@ -13,3 +13,5 @@ typedef struct date {
  * @return Date object initialized with arguments. 
  */
 Date createDate(int day, int month, int year);
+
+int dateCompare(Date d1, Date d2);

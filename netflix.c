@@ -4,7 +4,7 @@
 #include "netflix.h"
 #include "date.h"
 
-Netflix netflixCreate(char *show_id, char *type, char *title, char *director, char *cast, char *country, Date date_added, char *release_year, char *rating, int duration, char *listed_in, char *description)
+Netflix netflixCreate(char *show_id, char *type, char *title, char *director, char *cast, char *country, Date date_added, int release_year, char *rating, int duration, char *listed_in, char *description)
 {
 
     Netflix netflix; //Creates a netflix struct object
@@ -16,7 +16,7 @@ Netflix netflixCreate(char *show_id, char *type, char *title, char *director, ch
     strcpy(netflix.cast, cast);                 //Copy the string received to the netflix struct object
     strcpy(netflix.country, country);           //Copy the string received to the netflix struct object
     netflix.date_added = date_added;
-    strcpy(netflix.release_year, release_year); //Copy the string received to the netflix struct object
+    netflix.release_year = release_year;
     strcpy(netflix.rating, rating);             //Copy the string received to the netflix struct object
     netflix.duration = duration;
     strcpy(netflix.listed_in, listed_in);       //Copy the string received to the netflix struct object

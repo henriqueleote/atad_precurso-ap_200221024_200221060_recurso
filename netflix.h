@@ -10,7 +10,7 @@ typedef struct netflix
     char cast[700];        // - nomes dos atores [string]; -- ARRAY
     char country[100];     // - país de origem [string];
     Date date_added;       // - data de disponibilização na plataforma Netflix [string no formato “%M %d, %Y];
-    char release_year[10]; // - ano de publicação [string que contém um número inteiro];
+    int release_year; // - ano de publicação [string que contém um número inteiro];
     char rating[10];       // - classificação etária [string];
     int duration;          // - duração (em minutos ou temporadas) [string];
     char listed_in[100];   // - categorização do título [string];
@@ -36,4 +36,4 @@ typedef Netflix *PtNetflix;
  * @param description  [in] netflix show description
  * @return Netflix struct
  */
-Netflix netflixCreate(char *show_id, char *type, char *title, char *director, char *cast, char *country, Date date_added, char *release_year, char *rating, int duration, char *listed_in, char *description);
+Netflix netflixCreate(char *show_id, char *type, char *title, char *director, char *cast, char *country, Date date_added, int release_year, char *rating, int duration, char *listed_in, char *description);
