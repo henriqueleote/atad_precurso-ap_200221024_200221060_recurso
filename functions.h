@@ -2,6 +2,8 @@
 #include "list.h"
 #include "map.h"
 
+char *convertToLower(char *str);
+
 char *trimWhiteSpace(char *str);
 MapKey *sortKeys1(MapKey *keys, int n);
 
@@ -16,6 +18,10 @@ void sortRating(PtList titlesList);
  * @param titlesList [in] the list from where the titles are going to be printed from
  */
 void sortAlpha(PtList titlesList);
+
+void sortAlphaCategories(PtList titlesList);
+
+void sortAlphaDirectors(PtList titlesList);
 
 /**
  * @brief Sorts a given list by duration
@@ -135,8 +141,12 @@ PtList RATINGS(PtList titlesList, bool print);
 
 void CATEGORIES(PtList list);
 
+PtList DIRECTORS(PtList list, bool print);
+
 /**
  * @brief Creates a file with all data from netflix titles, sorted by rating and year. And a file with all the movies sorted by director
  * @param titlesList [in] the list from where the titles are going to be printed from
  */
 void SEGMENT(PtList titlesList);
+
+void SEGMENT2(PtList titlesList);

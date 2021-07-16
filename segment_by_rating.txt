@@ -39,7 +39,6 @@ G ------
  s5008  |       Movie  |                                                                                  Pup Star: World Tour  |                  2018  |                G  |               87 min.
   s228  |       Movie  |                                                                  A Shaun the Sheep Movie: Farmageddon  |                  2020  |                G  |               87 min.
  s1204  |       Movie  |                                                                                                Canvas  |                  2020  |                G  |                9 min.
-
 NA ------
  s3738  |       Movie  |                                                                                 Louis C.K.: Hilarious  |                  2010  |               NA  |               84 min.
  s2360  |     TV Show  |                                                                     Gargantia on the Verdurous Planet  |                  2013  |               NA  |                1 season(s)
@@ -48,12 +47,10 @@ NA ------
  s4324  |       Movie  |                                                                                  My Honor Was Loyalty  |                  2015  |               NA  |              115 min.
    s68  |       Movie  |                                                13TH: A Conversation with Oprah Winfrey & Ava DuVernay  |                  2017  |               NA  |               37 min.
  s3737  |       Movie  |                                                                                       Louis C.K. 2017  |                  2017  |               NA  |               74 min.
-
 NC-17 ------
   s997  |       Movie  |                                                                             Blue Is the Warmest Color  |                  2013  |            NC-17  |              180 min.
  s5937  |       Movie  |                                                                                   Swearnet: The Movie  |                  2014  |            NC-17  |              112 min.
  s3519  |       Movie  |                                                                                             Lady-Like  |                  2018  |            NC-17  |               83 min.
-
 NR ------
  s1242  |       Movie  |                                                                                 Cat on a Hot Tin Roof  |                  1958  |               NR  |              108 min.
  s7738  |       Movie  |                                                                                           Young Tiger  |                  1973  |               NR  |               81 min.
@@ -139,7 +136,6 @@ NR ------
  s2454  |       Movie  |                                                                                            God of War  |                  2017  |               NR  |              129 min.
  s7413  |       Movie  |                                                                                       Viceroy's House  |                  2017  |               NR  |              106 min.
   s318  |       Movie  |                                                                           Adventures in Public School  |                  2018  |               NR  |               86 min.
-
 PG ------
  s1415  |       Movie  |                                                                                       Cleopatra Jones  |                  1973  |               PG  |               89 min.
   s393  |       Movie  |                                                                       Alice Doesn't Live Here Anymore  |                  1974  |               PG  |              112 min.
@@ -388,7 +384,6 @@ PG ------
  s7085  |       Movie  |                                                                                             Tigertail  |                  2020  |               PG  |               91 min.
  s7506  |       Movie  |                                                                                      We Can Be Heroes  |                  2020  |               PG  |              101 min.
  s7644  |       Movie  |                                                                                   Wish Upon a Unicorn  |                  2020  |               PG  |               93 min.
-
 PG-13 ------
  s5123  |       Movie  |                                                                                 Rebel Without a Cause  |                  1955  |            PG-13  |              111 min.
  s1794  |       Movie  |                                                                                        Doctor Zhivago  |                  1965  |            PG-13  |              200 min.
@@ -776,7 +771,6 @@ PG-13 ------
  s6884  |       Movie  |                                                                                    The Social Dilemma  |                  2020  |            PG-13  |               94 min.
  s7214  |       Movie  |                                                                              Tremors: Shrieker Island  |                  2020  |            PG-13  |              102 min.
  s7390  |       Movie  |                                                                                Vampires vs. the Bronx  |                  2020  |            PG-13  |               86 min.
-
 R ------
  s3708  |       Movie  |                                                                                                Lolita  |                  1962  |                R  |              153 min.
  s1042  |       Movie  |                                                                                      Bonnie and Clyde  |                  1967  |                R  |              111 min.
@@ -1443,7 +1437,6 @@ R ------
  s7577  |       Movie  |                                                                                     Wheels of Fortune  |                  2020  |                R  |              107 min.
  s7711  |       Movie  |                                                                                         Yes, God, Yes  |                  2020  |                R  |               78 min.
  s4711  |       Movie  |                                                                                      Outside the Wire  |                  2021  |                R  |              116 min.
-
 TV-14 ------
  s4868  |     TV Show  |                                                                     Pioneers: First Women Filmmakers*  |                  1925  |            TV-14  |                1 season(s)
  s4961  |       Movie  |                                                                                        Prelude to War  |                  1942  |            TV-14  |               52 min.
@@ -3376,7 +3369,6 @@ TV-14 ------
  s6478  |     TV Show  |                                                                                  The Idhun Chronicles  |                  2021  |            TV-14  |                2 season(s)
  s6671  |       Movie  |                                                                          The Minimalists: Less Is Now  |                  2021  |            TV-14  |               54 min.
  s7570  |       Movie  |                                                                           What Would Sophia Loren Do?  |                  2021  |            TV-14  |               32 min.
-
 TV-G ------
  s7596  |       Movie  |                                                                                       White Christmas  |                  1954  |             TV-G  |              120 min.
  s6083  |     TV Show  |                                                                                The Andy Griffith Show  |                  1967  |             TV-G  |                8 season(s)
@@ -3572,7 +3564,6 @@ TV-G ------
  s7291  |     TV Show  |                                                                                             Twogether  |                  2020  |             TV-G  |                1 season(s)
  s1865  |     TV Show  |                                                                                   Dream Home Makeover  |                  2021  |             TV-G  |                2 season(s)
  s2673  |     TV Show  |                                                                         Headspace Guide to Meditation  |                  2021  |             TV-G  |                1 season(s)
-
 TV-MA ------
  s4437  |       Movie  |                                                                              Nazi Concentration Camps  |                  1945  |            TV-MA  |               59 min.
  s5352  |       Movie  |                                                                                               Saladin  |                  1963  |            TV-MA  |              194 min.
@@ -6437,7 +6428,6 @@ TV-MA ------
  s6702  |     TV Show  |                                                                                The Netflix Afterparty  |                  2021  |            TV-MA  |                1 season(s)
  s7221  |       Movie  |                                                                         Tribhanga - Tedhi Medhi Crazy  |                  2021  |            TV-MA  |               96 min.
  s7552  |       Movie  |                                                                             What Happened to Mr. Cha?  |                  2021  |            TV-MA  |              102 min.
-
 TV-PG ------
  s7343  |       Movie  |                                                         Undercover: How to Operate Behind Enemy Lines  |                  1943  |            TV-PG  |               61 min.
  s7617  |       Movie  |                                                                    Why We Fight: The Battle of Russia  |                  1943  |            TV-PG  |               82 min.
@@ -7245,7 +7235,6 @@ TV-PG ------
  s7723  |       Movie  |                                                                                       You Are My Home  |                  2020  |            TV-PG  |               93 min.
  s4391  |     TV Show  |                                                                                     Nailed It! Mexico  |                  2021  |            TV-PG  |                3 season(s)
  s7645  |       Movie  |                                                                                              Wish You  |                  2021  |            TV-PG  |              102 min.
-
 TV-Y ------
  s1598  |     TV Show  |                                                                      Danger Mouse: Classic Collection  |                  1992  |             TV-Y  |               10 season(s)
  s6630  |     TV Show  |                                                                                  The Magic School Bus  |                  1997  |             TV-Y  |                4 season(s)
@@ -7527,7 +7516,6 @@ TV-Y ------
  s7721  |     TV Show  |                                                                                  YooHoo to the Rescue  |                  2020  |             TV-Y  |                3 season(s)
  s2328  |     TV Show  |                                                                                     Gabby's Dollhouse  |                  2021  |             TV-Y  |                1 season(s)
  s4087  |     TV Show  |                                                                    Mighty Little Bheem: Kite Festival  |                  2021  |             TV-Y  |                1 season(s)
-
 TV-Y7 ------
  s4479  |     TV Show  |                                                                                         Ninja Hattori  |                  1981  |            TV-Y7  |                1 season(s)
  s6915  |     TV Show  |                                                                     The Super Mario Bros. Super Show!  |                  1989  |            TV-Y7  |                1 season(s)
@@ -7800,7 +7788,6 @@ TV-Y7 ------
  s1223  |     TV Show  |                                                                                       Carmen Sandiego  |                  2021  |            TV-Y7  |                4 season(s)
  s1286  |       Movie  |                                                                                              Charming  |                  2021  |            TV-Y7  |               85 min.
  s2742  |     TV Show  |                                                                                                 Hilda  |                  2021  |            TV-Y7  |                2 season(s)
-
 TV-Y7-FV ------
  s1663  |       Movie  |                                                                                          Dear Dracula  |                  2012  |         TV-Y7-FV  |               43 min.
  s3602  |       Movie  |                                                                                          Leo the Lion  |                  2013  |         TV-Y7-FV  |               78 min.
@@ -7808,11 +7795,9 @@ TV-Y7-FV ------
  s3594  |       Movie  |                                               LEGO Ninjago: Masters of Spinjitzu: Day of the Departed  |                  2016  |         TV-Y7-FV  |               44 min.
  s4242  |       Movie  |                                                                             Motu Patlu: King of Kings  |                  2016  |         TV-Y7-FV  |              109 min.
  s3669  |       Movie  |                                                                   Little Singham aur Kaal ka Mahajaal  |                  2018  |         TV-Y7-FV  |               68 min.
-
 UR ------
  s2954  |       Movie  |                                                                                         Immoral Tales  |                  1974  |               UR  |              103 min.
  s2485  |       Movie  |                                                                                       Good Luck Chuck  |                  2007  |               UR  |               99 min.
  s5574  |       Movie  |                                                                               Shootout at Lokhandwala  |                  2007  |               UR  |              116 min.
  s7729  |       Movie  |                                                                         You Don't Mess with the Zohan  |                  2008  |               UR  |              113 min.
  s5523  |       Movie  |                                                                                              Sex Doll  |                  2016  |               UR  |              103 min.
-
