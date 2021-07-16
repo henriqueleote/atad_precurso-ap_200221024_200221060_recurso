@@ -8,16 +8,19 @@
 
 #include "mapElem.h"
 #include <stdio.h>
+#include <string.h>
 
-void mapKeyPrint(MapKey key) {
-	printf("%d \n", key);
+void mapKeyPrint(MapKey key)
+{
+	printf("%s \n", key.text);
 }
 
-void mapValuePrint(MapValue value) {
-	printf("%d \n", value);
+void mapValuePrint(MapValue value)
+{
+	printf("%s \n", value.text);
 }
 
-int mapKeyCompare(MapKey key1, MapKey key2) {
-	// in case of integer keys:
-	return (key1 - key2); 
+int mapKeyCompare(MapKey key1, MapKey key2)
+{
+	return (strcmp(key1.text, key2.text));
 }

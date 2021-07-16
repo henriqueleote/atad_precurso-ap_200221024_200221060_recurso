@@ -1,5 +1,9 @@
 #include "netflix.h"
 #include "list.h"
+#include "map.h"
+
+char *trimWhiteSpace(char *str);
+MapKey *sortKeys1(MapKey *keys, int n);
 
 /**
  * @brief Sorts a given list by rating
@@ -128,6 +132,8 @@ void SEARCHC(PtList mainList);
  * @param print [in] boolean to check if it's going to print the ratings
  */
 PtList RATINGS(PtList titlesList, bool print);
+
+void CATEGORIES(PtList list);
 
 /**
  * @brief Creates a file with all data from netflix titles, sorted by rating and year. And a file with all the movies sorted by director

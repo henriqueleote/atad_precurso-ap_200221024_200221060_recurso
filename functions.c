@@ -6,12 +6,62 @@
 #include "list.h"
 #include "map.h"
 #include "date.h"
+#include "StringWrap.h"
 #include <ctype.h>
 
 #define NETFLIX_FILE "csv_data/netflix_titles.csv"
 #define TYPE 0
 #define TYPE_MOVIE 1
 #define TYPE_SHOW 2
+
+char *trimWhiteSpace(char *str)
+{
+    int len = strlen(str);
+    if (str[0] == ' ')
+    {
+        for (int i = 0; i < len; i++)
+        {
+            str[i] = str[i + 1];
+            if (str[i] == '\0')
+            {
+                break;
+            }
+        }
+    }
+    int len1 = strlen(str);
+    if (str[len1 - 1] == ' ')
+    {
+        str[len1 - 1] = '\0';
+    }
+    return str;
+}
+
+MapKey *sortKeys1(MapKey *keys, int n)
+{
+    int keys1 = 0;
+    int keys2 = 0;
+    MapKey arr;
+    char copyKeys1[50];
+    char copyKeys2[50];
+
+    for (int i = 0; i < n - 1; i++)
+    {
+        strcpy(copyKeys1, keys[i].text);
+
+        for (int j = i + 1; j < n; j++)
+        {
+            strcpy(copyKeys2, keys[j].text);
+
+            if (strcmp(copyKeys1, copyKeys2) > 0)
+            {
+                arr = keys[i];
+                keys[i] = keys[j];
+                keys[j] = arr;
+            }
+        }
+    }
+    return keys;
+}
 
 void sortRating(PtList titlesList)
 {
@@ -724,6 +774,47 @@ PtList RATINGS(PtList titlesList, bool print)
     }
 
     return ratingsList;
+}
+
+void CATEGORIES(PtList list)
+{
+    Netflix netflix;
+    PtMap resultMap = mapCreate();
+    int size, resultSize, count = 0;
+    listSize(list, &size);
+
+    char *help;
+
+    printf("Please wait while we process...\n");
+    for (int i = 0; i < size; i++)
+    {
+        listGet(list, i, &netflix);
+        char *token = strtok(netflix.listed_in, ",");
+        while (token != NULL)
+        {
+            token = trimWhiteSpace(token);
+            StringWrap help1 = stringWrapCreate(token);
+            mapPut(resultMap, help1, help1);
+            token = strtok(NULL, ",");
+        }
+    }
+
+    MapKey *categorias = mapKeys(resultMap);
+
+    mapSize(resultMap, &resultSize);
+
+    //categorias = sortKeys1(categorias, resultSize);
+
+    printf("\nAll categories:\n");
+
+    for (int k = 0; k < resultSize; k++)
+    {
+        printf("%s\n", categorias[k].text);
+    }
+
+    free(categorias);
+
+    mapDestroy(&resultMap);
 }
 
 void SEGMENT(PtList titlesList)
