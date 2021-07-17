@@ -148,5 +148,3 @@ PtList DIRECTORS(PtList list, bool print);
  * @param titlesList [in] the list from where the titles are going to be printed from
  */
 void SEGMENT(PtList titlesList);
-
-void SEGMENT2(PtList titlesList);

@@ -14,7 +14,21 @@
 #define TYPE_MOVIE 1
 #define TYPE_SHOW 2
 
-char *convertToLower(char *str){
+void checkList(PtList list)
+{
+    if (list == NULL)
+    {
+        printf("There are no titles.");
+    }
+    else if (listSize == 0)
+    {
+
+        printf("There are no titles.");
+    }
+}
+
+char *convertToLower(char *str)
+{
     for (int i = 0; i <= strlen(str); i++)
     {
         if (str[i] >= 65 && str[i] <= 90)
@@ -46,6 +60,7 @@ char *trimWhiteSpace(char *str)
 
 void sortRating(PtList titlesList)
 {
+    checkList(titlesList);
     int titlesListSize;
     listSize(titlesList, &titlesListSize);
     printf("\nPlease wait while sorting by Rating...\n\n");
@@ -67,6 +82,7 @@ void sortRating(PtList titlesList)
 
 void sortAlpha(PtList titlesList)
 {
+    checkList(titlesList);
     int titlesListSize;
     listSize(titlesList, &titlesListSize);
     printf("\nPlease wait while sorting by Title...\n\n");
@@ -88,6 +104,7 @@ void sortAlpha(PtList titlesList)
 
 void sortAlphaCategories(PtList titlesList)
 {
+    checkList(titlesList);
     int titlesListSize;
     char *str1 = (char *)calloc(70, sizeof(char));
     char *str2 = (char *)calloc(70, sizeof(char));
@@ -100,7 +117,7 @@ void sortAlphaCategories(PtList titlesList)
             Netflix netflix1, netflix2, netflixTemp;
             listGet(titlesList, j, &netflix1);
             listGet(titlesList, j + 1, &netflix2);
-            
+
             strcpy(str1, netflix1.listed_in);
             strcpy(str2, netflix2.listed_in);
             convertToLower(str1);
@@ -118,6 +135,7 @@ void sortAlphaCategories(PtList titlesList)
 
 void sortAlphaDirectors(PtList titlesList)
 {
+    checkList(titlesList);
     int titlesListSize;
     char *str1 = (char *)calloc(70, sizeof(char));
     char *str2 = (char *)calloc(70, sizeof(char));
@@ -148,6 +166,7 @@ void sortAlphaDirectors(PtList titlesList)
 
 void sortDuration(PtList titlesList)
 {
+    checkList(titlesList);
     int titlesListSize;
     listSize(titlesList, &titlesListSize);
     printf("\nPlease wait while sorting by Duration...\n\n");
@@ -169,6 +188,7 @@ void sortDuration(PtList titlesList)
 
 void sortYear(PtList titlesList)
 {
+    checkList(titlesList);
     int titlesListSize;
     listSize(titlesList, &titlesListSize);
     printf("Please wait while sorting by Year...\n\n");
@@ -190,6 +210,7 @@ void sortYear(PtList titlesList)
 
 void sortDate(PtList titlesList)
 {
+    checkList(titlesList);
     int titlesListSize;
     listSize(titlesList, &titlesListSize);
     printf("\nPlease wait while sorting by Date...\n\n");
@@ -212,6 +233,7 @@ void sortDate(PtList titlesList)
 
 bool ratingExists(PtList ratingsList, char *str)
 {
+    checkList(ratingsList);
     int ratingsListSize, i = 0;
     listSize(ratingsList, &ratingsListSize);
     Netflix netflix;
@@ -239,8 +261,9 @@ void netflixPrint(Netflix *pNetflix)
 
 PtList LOADF(PtList titlesList)
 {
+    checkList(titlesList);
     listClear(titlesList); //clears the list before inserting new data
-    int count = -1;  //starts the count at -1 to skip the first line from csv
+    int count = -1;        //starts the count at -1 to skip the first line from csv
     char *line = (char *)calloc(10000, sizeof(char));
 
     char path[] = "csv_data/";
@@ -328,8 +351,9 @@ PtList LOADF(PtList titlesList)
 
 PtList LOADD(PtList titlesList)
 {
+    checkList(titlesList);
     listClear(titlesList); //clears the list before inserting new data
-    int count = -1; //starts the count at -1 to skip the first line from csv
+    int count = -1;        //starts the count at -1 to skip the first line from csv
     char *line = (char *)calloc(10000, sizeof(char));
 
     FILE *stream = fopen(NETFLIX_FILE, "r");
@@ -407,6 +431,7 @@ PtList LOADD(PtList titlesList)
 
 void DEL(PtList list)
 {
+    checkList(list);
     char *idTitle = (char *)calloc(10, sizeof(char));
     printf("Title ID: ");
     readString(idTitle, 10);
@@ -432,11 +457,11 @@ void DEL(PtList list)
         printf("Title not found.\n");
     else
     {
-        printf("Are you sure you want to delete %s? (y/n) ", idTitle);  //asks the user from confirmation
+        printf("Are you sure you want to delete %s? (y/n) ", idTitle); //asks the user from confirmation
         scanf("%c", &c);
 
         if (c == 'Y' || c == 'y')
-            listRemove(list, position, &netflix);   //removes the specific rank from the list
+            listRemove(list, position, &netflix); //removes the specific rank from the list
         else
             printf("%s was not deleted.\n", idTitle);
     }
@@ -446,20 +471,23 @@ void DEL(PtList list)
 
 void CLEAR(PtList list)
 {
+    checkList(list);
     int sizeList;
     listSize(list, &sizeList); //check the list size
-    listClear(list);        //clears the list
+    listClear(list);           //clears the list
     printf("%d shows deleted.\n", sizeList);
 }
 
 void QUIT(PtList list)
 {
-    listDestroy(&list);    //destroys the list
+    checkList(list);
+    listDestroy(&list); //destroys the list
     exit(0);
 }
 
 void GET(PtList titlesList)
 {
+    checkList(titlesList);
     char *idTitle = (char *)calloc(10, sizeof(char));
     printf("Title ID: ");
     readString(idTitle, 10);
@@ -509,6 +537,7 @@ void GET(PtList titlesList)
 
 void LIST(PtList titlesList, int min, int max, int type)
 {
+    //checkList(titlesList);
     int titleSizeList;
     listSize(titlesList, &titleSizeList);
     Netflix netflix;
@@ -640,6 +669,7 @@ void LIST(PtList titlesList, int min, int max, int type)
 
 void STATS(PtList titlesList)
 {
+    checkList(titlesList);
     int titleSizeList = 0, min = 300, max = 0, minS = 100, maxS = 0;
     double movieCount = 0, totalMinutes = 0, totalSeasons = 0, tvCount = 0;
 
@@ -682,18 +712,19 @@ void STATS(PtList titlesList)
 
 void MTIME(PtList titlesList)
 {
+    checkList(titlesList);
     int min;
     int max;
 
     printf("Min: ");
-    readInteger(&min);      //asks the min duration value
+    readInteger(&min); //asks the min duration value
 
     printf("Max: ");
-    readInteger(&max);      //asks the max duration value
+    readInteger(&max); //asks the max duration value
 
-    if (min <= max)     //check if the min is lower or equal than the max duration
+    if (min <= max) //check if the min is lower or equal than the max duration
     {
-        sortDuration(titlesList);            //sorts the list by duration
+        sortDuration(titlesList);               //sorts the list by duration
         LIST(titlesList, min, max, TYPE_MOVIE); //prints the list
     }
     else
@@ -704,19 +735,20 @@ void MTIME(PtList titlesList)
 
 void SEARCHT(PtList mainList)
 {
+    checkList(mainList);
     char *titleName = (char *)calloc(120, sizeof(char));
     char *netflixTitleName = (char *)calloc(120, sizeof(char));
     int mainSizeList;
     Netflix netflix;
     listSize(mainList, &mainSizeList);
-    PtList titlesList = listCreate();    //creates a list
+    PtList titlesList = listCreate(); //creates a list
     int count = 0;
 
     printf("Please insert the title name: ");
     readString(titleName, 100);
 
     int titleNameCount = 0;
-    while (titleNameCount < strlen(titleName))  //turns the string into lowercase
+    while (titleNameCount < strlen(titleName)) //turns the string into lowercase
     {
         titleName[titleNameCount] = tolower(titleName[titleNameCount]);
         titleNameCount++;
@@ -741,15 +773,16 @@ void SEARCHT(PtList mainList)
             count++;
         }
     }
-    sortDate(titlesList);    //sorts the list by date
-    printf("Query is \"%s\" -----\n", titleName);   
-    LIST(titlesList, -1, -1, TYPE);  //prints the list
+    sortDate(titlesList); //sorts the list by date
+    printf("Query is \"%s\" -----\n", titleName);
+    LIST(titlesList, -1, -1, TYPE); //prints the list
     free(titleName);
     free(netflixTitleName);
 }
 
 void SEARCHC(PtList mainList)
 {
+    checkList(mainList);
     char *castName = (char *)calloc(640, sizeof(char));
     char *netflixCastName = (char *)calloc(640, sizeof(char));
     int mainSizeList;
@@ -762,7 +795,7 @@ void SEARCHC(PtList mainList)
     readString(castName, 500);
 
     int castNameCount = 0;
-    while (castNameCount < strlen(castName))    //turns the string into lowercase
+    while (castNameCount < strlen(castName)) //turns the string into lowercase
     {
         castName[castNameCount] = tolower(castName[castNameCount]);
         castNameCount++;
@@ -796,6 +829,7 @@ void SEARCHC(PtList mainList)
 
 PtList RATINGS(PtList titlesList, bool print)
 {
+    //checkList(titlesList);
     PtList ratingsList = listCreate(); //creates a new list only for the ratings
     int titleSizeList, ratingSizeList, count;
     listSize(titlesList, &titleSizeList);
@@ -808,19 +842,19 @@ PtList RATINGS(PtList titlesList, bool print)
 
         if (!ratingExists(ratingsList, netflix.rating)) //if doesnt exist
         {
-            listAdd(ratingsList, count, netflix);   //adds to list
+            listAdd(ratingsList, count, netflix); //adds to list
             count++;
         }
     }
 
-    sortRating(ratingsList);    //sorts the list by rating
+    sortRating(ratingsList); //sorts the list by rating
 
     listSize(ratingsList, &ratingSizeList);
 
     for (int k = 0; k < ratingSizeList; k++) //"for" cicle to run the list
     {
         listGet(ratingsList, k, &ratingsData);
-        if (print == true)  //only prints the list if necessary
+        if (print == true) //only prints the list if necessary
             printf("%s\n", ratingsData.rating);
     }
 
@@ -829,6 +863,7 @@ PtList RATINGS(PtList titlesList, bool print)
 
 void CATEGORIES(PtList list)
 {
+    checkList(list);
     Netflix netflix, netflix1, netflix2;
     PtMap resultMap = mapCreate();
     int size, resultSize, count = 0;
@@ -877,6 +912,7 @@ void CATEGORIES(PtList list)
 
 PtList DIRECTORS(PtList list, bool print)
 {
+    checkList(list);
     Netflix netflix, netflix1, netflix2;
     PtMap resultMap = mapCreate();
     int size, resultSize, count = 0;
@@ -913,8 +949,8 @@ PtList DIRECTORS(PtList list, bool print)
     for (int k = 0; k < resultSize; k++)
     {
         listGet(directorsList, k, &netflix2);
-        if(print == true)
-        printf("%s\n", netflix2.director);
+        if (print == true)
+            printf("%s\n", netflix2.director);
     }
 
     free(categorias);
@@ -925,7 +961,7 @@ PtList DIRECTORS(PtList list, bool print)
 
 void SEGMENT(PtList titlesList)
 {
-
+    checkList(titlesList);
     printf("---------------------------------------\n");
     //RATINGS
     printf("Creating segment_by_rating.txt file\n");
@@ -1027,9 +1063,6 @@ void SEGMENT(PtList titlesList)
     free(str5);
     free(str6);
     free(str7);
-}
-
-void SEGMENT2(PtList titlesList)
-{
-    
+    listDestroy(&directorsList);
+    listDestroy(&ratingsList);
 }
