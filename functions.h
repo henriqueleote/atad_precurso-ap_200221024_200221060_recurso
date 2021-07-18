@@ -2,6 +2,8 @@
 #include "list.h"
 #include "map.h"
 
+bool listEmpty(PtList list);
+
 char *convertToLower(char *str);
 
 char *trimWhiteSpace(char *str);
@@ -79,7 +81,7 @@ PtList LOADD(PtList titlesList);
  * @brief Deletes a specific given title from the netflix list
  * @param list [in] the list from where the title is going to be removed
  */
-void DEL(PtList list);
+PtList DEL(PtList list);
 
 /**
  * @brief Clear all the used lists in order to clear used memory

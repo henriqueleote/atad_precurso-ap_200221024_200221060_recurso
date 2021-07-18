@@ -18,6 +18,8 @@
         "loadf.h": "c",
         "mtime.h": "c",
         "stdlib.h": "c",
-        "ratings.h": "c"
+        "ratings.h": "c",
+        "sstream": "c",
+        "random": "c"
     }
 }
