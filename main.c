@@ -2,7 +2,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include "input.h"
-#include "functions.h"
+#include "search.h"
+#include "import.h"
+#include "agregation.h"
+#include "auxiliarFuncs.h"
+
 
 #define NETFLIX_FILE "csv_data/netflix_titles.csv"
 #define ALL 0

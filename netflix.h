@@ -37,3 +37,5 @@ typedef Netflix *PtNetflix;
  * @return Netflix struct
  */
 Netflix netflixCreate(char *show_id, char *type, char *title, char *director, char *cast, char *country, Date date_added, int release_year, char *rating, int duration, char *listed_in, char *description);
+
+

@@ -24,3 +24,4 @@ Netflix netflixCreate(char *show_id, char *type, char *title, char *director, ch
 
     return netflix; //Returns the netflix struct object
 }
+
