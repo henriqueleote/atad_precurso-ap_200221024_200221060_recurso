@@ -21,8 +21,10 @@ PtList LOADF(PtList mainList)
     int loadFCount = -1;   //starts the count at -1 to skip the first line from csv
     char *line = (char *)calloc(10000, sizeof(char));
 
-    char path[] = "csv_data/";
+    char *path = (char *)calloc(70, sizeof(char));
     char *fileName = (char *)calloc(50, sizeof(char));
+
+    strcpy(path, "csv_data/");
 
     printf("\nFile name (without path): ");
     readString(fileName, 50);
@@ -107,6 +109,7 @@ PtList LOADF(PtList mainList)
 
     free(line);
     free(fileName);
+    free(path);
 
     return mainList;
 }

@@ -125,6 +125,7 @@ int main()
             printf("\nCommand not valid.\n");
         }
     }
+    free(command);
     return EXIT_SUCCESS;
 }
 

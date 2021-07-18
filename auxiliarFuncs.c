@@ -18,13 +18,13 @@ bool listEmpty(PtList list){
     bool check = false;
     if (listIsEmpty(list))
     {
-        printf("\nList is empty. Press enter to continue.\n");
+        printf("\nNo data available...\nPress enter to continue.\n");
         getchar();
         return true;
     }
     if (list == NULL)
     {
-        printf("\nList is null. Press enter to continue.\n");
+        printf("\nNo data available...\nPress enter to continue.\n");
         getchar();
         return true;
     }

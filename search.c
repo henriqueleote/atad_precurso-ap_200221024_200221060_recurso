@@ -260,9 +260,7 @@ void MTIME(PtList mainList)
         LIST(mainList, min, max, TYPE_MOVIE); //prints the list
     }
     else
-    {
         printf("Min can't be bigger than max.\n");
-    }
 }
 
 void SEARCHT(PtList mainList)
@@ -294,7 +292,7 @@ void SEARCHT(PtList mainList)
             tCount++;
         }
     }
-    //sortDate(titlesList); //sorts the list by date
+    sortDate(titlesList); //sorts the list by date
     printf("Query is \"%s\" -----\n", titleName);
     free(titleName);
     free(netflixTitleName);
@@ -310,8 +308,8 @@ void SEARCHC(PtList mainList)
     Netflix netflix;
     listSize(mainList, &mainSizeList);
     PtList titlesList = listCreate(); //creates a list
-    
-    printf("Please insert the cast name: ");
+
+    printf("Please insert the cast member(s) name: ");
     readString(castName, 650);
 
     convertToLower(castName);
@@ -330,13 +328,12 @@ void SEARCHC(PtList mainList)
             cCount++;
         }
     }
-    //sortDate(titlesList); //sorts the list by date
+    sortDate(titlesList); //sorts the list by date
     printf("Query is \"%s\" -----\n", castName);
     free(castName);
     free(netflixCastName);
     LIST(titlesList, -1, -1, ALL); //prints the list
 }
-
 
 PtList RATINGS(PtList mainList, bool print)
 {
