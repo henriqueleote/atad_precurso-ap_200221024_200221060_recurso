@@ -6,7 +6,7 @@
 #include "list.h"
 #include "map.h"
 #include "date.h"
-#include "StringWrap.h"
+#include "stringWrap.h"
 #include <ctype.h>
 
 /**

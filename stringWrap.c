@@ -1,4 +1,4 @@
-#include "StringWrap.h"
+#include "stringWrap.h"
 #include "string.h"
 
 StringWrap stringWrapCreate(char *str)

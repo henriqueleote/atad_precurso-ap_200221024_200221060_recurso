@@ -6,7 +6,7 @@
 #include "list.h"
 #include "map.h"
 #include "date.h"
-#include "StringWrap.h"
+#include "stringWrap.h"
 #include <ctype.h>
 
 #define NETFLIX_FILE "csv_data/netflix_titles.csv"

@@ -17,7 +17,7 @@
 #pragma once
 
 #include <stdbool.h>
-#include "StringWrap.h"
+#include "stringWrap.h"
 
 /** Key type definition. Change according to the use-case. */
 typedef StringWrap MapKey;
