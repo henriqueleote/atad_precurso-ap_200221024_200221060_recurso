@@ -301,8 +301,10 @@ void SEARCHT(PtList mainList)
 
 void SEARCHC(PtList mainList)
 {
-    char *castName = (char *)calloc(700, sizeof(char));
-    char *netflixCastName = (char *)calloc(700, sizeof(char));
+    char *castName = (char *)calloc(650, sizeof(char));
+    char *netflixCastName = (char *)calloc(800, sizeof(char));
+
+
     int mainSizeList = 0;
     int cCount = 0;
     Netflix netflix;
